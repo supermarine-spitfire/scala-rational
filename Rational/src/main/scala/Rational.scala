@@ -1,5 +1,5 @@
 package main.scala
 
-class Rational {
+class Rational(n: Int, d: Int){
 
 }
