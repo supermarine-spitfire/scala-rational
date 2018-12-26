@@ -3,12 +3,16 @@ package main.scala
 class Rational(n: Int, d: Int){
   require(d != 0)
 
-  val numer: Int = n
-  val denom: Int = d
+  private val g = gcd(n.abs, d.abs)
+  val numer: Int = n / g
+  val denom: Int = d / g
 
   def this(n: Int) = this(n, 1) // auxiliary constructor
 
   override def toString: String = n + "/" + d
+
+  private def gcd(a: Int, b: Int): Int =
+    if (b == 0) a else gcd(b, a % b)
 
   def add(that: Rational): Rational =
     new Rational(
